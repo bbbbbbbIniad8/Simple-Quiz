@@ -9,9 +9,9 @@ type Props = {
 function QuizWindow({quizNum, quizMsg, answerEvent}: Props){
     return(
         <MainWindow>
-          <p className="px-2 size-4 font-medium w-15">{quizNum}問目</p>
-          <p>{quizMsg}</p>
-          <input type="text" className="border border-solid border-black" onKeyDown={answerEvent} autoFocus></input>
+          <p className="py-5 font-medium w-25 text-4xl">{quizNum}問目</p>
+          <p className="text-3xl">{quizMsg}</p>
+          <input type="text" className="my-3 border border-solid border-black bg-white text-center text-3xl" onKeyDown={answerEvent} autoFocus></input>
         </MainWindow>
     )
 }

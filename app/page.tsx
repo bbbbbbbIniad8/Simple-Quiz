@@ -5,6 +5,7 @@ import SubResult from './components/subresult';
 import { StartWindow } from './components/startWindow';
 import { QuizWindow } from './components/quizWindow';
 import Result from './components/result';
+import LoadCSV from './components/loadCSV';
 
 interface CsvRow {
   [key: string]: string | string;
@@ -71,7 +72,7 @@ export default function CsvUploader() {
       } else{
         setScreen("answering")
       }
-    }, 2000)
+    }, 1000)
   }
 
   const renderContent = () => {
@@ -88,15 +89,11 @@ export default function CsvUploader() {
 };
   return (
     
-    <div className="p-20 flex flex-col items-center">
+    <div className="p-20 flex flex-col  justify-center items-center bg-blue-200 h-screen min-h-screen">
       {loadCsv && <>
-      {correctLst.length}
-      {incorrectLst.length}
       </>}
-      <input type="file" accept=".csv" onChange={handleFileChange} />
-      {
-        loadCsv && renderContent()
-      }    
+      {!loadCsv ? <LoadCSV loadEvent={e => handleFileChange(e)}/> : renderContent()}
+
     </div>
   );
 }
